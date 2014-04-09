@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="uft-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no">
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="bower_components/topcoat/css/topcoat-mobile-light.css" >
+    <link rel="stylesheet" href="styles/pageslider.css">
+    <link rel="stylesheet" href="styles/main.css">
+
+  <title>UoP Tour Guide</title>
+</head>
+<body>
+<!-- Javascript Libraries -->
+<script src="bower_components/jquery/jquery.js"></script>
+<script src="bower_components/underscore/underscore.js"></script>
+<script src="bower_components/backbone/backbone.js"></script>
+<script src="scripts/vendor/pageslider.js"></script>
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=[api key]&sensor=false"></script>
+
+<!-- build:js({.tmp,app}) scripts/main.js -->
+
+<script src="scripts/main.js"></script>
+<script src="scripts/templates.js"></script>
+<script src="scripts/models/BuildingModel.js"></script>
+<script src="scripts/vendor/memory-adapter.js"></script>
+<script src="scripts/routes/MainRouter.js"></script>
+<script src="scripts/views/MainView.js"></script>
+<script src="scripts/views/BuildingListView.js"></script>
+<script src="scripts/views/BuildingView.js"></script>
+<script src="scripts/views/MapView.js"></script>
+<!-- endbuild -->
+</body>
+</html>
