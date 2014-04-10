@@ -19,16 +19,16 @@ App.Routers = App.Routers || {};
 	index: function(){
 		if(!App.mainView){	
 			App.mainView = new App.Views.MainView();
-			console.log(App.mainView)
 			App.mainView.render();
 			 }else {
+			 	console.log("view reuse");
 			 App.mainView.delegateEvents();
 			}
 			App.slider.slidePage(App.mainView.$el);
 		},
 
 	buildingDetails: function(id){
-		var building = new  App.Models.BuildingModel({id: id});
+		building = new  App.Models.BuildingModel({id: id});
 			building.fetch({
 			success: function(data){
 				var buildingView = new App.Views.BuildingView({model: data});
@@ -51,8 +51,8 @@ App.Routers = App.Routers || {};
 			},
 			error: function(response){
 				console.log(error,'There was some error in accessing data');
-			}
-		});
+				}
+			});
    		}
 
     });

@@ -6,19 +6,30 @@
     overflow: auto;
     -webkit-overflow-scrolling: touch;
     position: absolute;
-    top: 168px;
-    bottom: 0px;
     left: 0px;
     right: 0px;
 }
 
-.topcoat-icon--back {
-    background: url("../images/back_light.svg") no-repeat;
+.bgimage{
+    background: url(../images/uop.jpg) no-repeat center;
     -webkit-background-size: cover;
     -moz-background-size: cover;
+    -o-background-size: cover;
     background-size: cover;
+    height:200px;   
 }
 
+.bgimage > p{
+    position: fixed;
+    height:1.25em;
+    font-size:1.50em;
+    color: #ffffff;
+    top:100px;
+}
+
+.bgimage span{
+    background: rgba(0,0,0, 0.3);
+}
 .topcoat-list__container {
     border-bottom: none;
     clear: both;
@@ -33,21 +44,23 @@
 }
 
 .search-bar {
-    padding:12px 10px 12px 8px;
+    padding:12px 10px 9px 8px;
+    border-bottom:1px solid #9daca9;
+    border-top:1px solid #9daca9;
 }
 
 a {
     text-decoration: none;
     color: inherit;
     -webkit-touch-callout: none;
-    -webkit-tap-highlight-color: rgb(0, 0, 0);
+   -webkit-tap-highlight-color: rgb(161, 161, 161);
 }
 
 .details {
     margin: auto;
 }
 
-.details>img {
+.details >img {
     float:left;
     margin:10px;
     width: 80px;
@@ -55,10 +68,9 @@ a {
 }
 
 .details h1 {
-    padding: 12px 0px 4px 0px;
+    padding: 5px 0px 0px 0px;
     margin: 0px 0px 0px 0px;
     font-size: 1.2rem;
-    color: #C6C8C8;
 }
 
 .details h2 {
@@ -68,7 +80,9 @@ a {
     font-weight: normal;
     color: #888;
 }
-
+.details p{
+    margin-top: 0;
+}
 .list li {
     position: relative;
     text-align: left;
@@ -96,7 +110,7 @@ a {
 }
 
 .list li:active {
-    background-color: #404141;
+    background-color: #A1A1A1;
     -webkit-box-shadow: inset 0 1px rgba(0,0,0,0.18);
     box-shadow: inset 0 1px rgba(0,0,0,0.18);
 }
@@ -113,9 +127,6 @@ a {
     height: 28px;
 }
 
-.actions li p:nth-of-type(2) {
-    color:  #58C0FF ;
-}
 
 ul {
     clear:both;
@@ -123,15 +134,7 @@ ul {
 }
 
 .icon-call {
-    background: transparent url(../images/call.svg);
-    background-repeat: no-repeat;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    background-size: cover;
-}
-
-.icon-sms {
-    background: transparent url(../images/chat.svg);
+    background: transparent url(../images/call_pur.svg);
     background-repeat: no-repeat;
     -webkit-background-size: cover;
     -moz-background-size: cover;
@@ -139,31 +142,16 @@ ul {
 }
 
 .icon-mail {
-    background: transparent url(../images/email.svg);
+    background: transparent url(../images/email_pur.svg);
     background-repeat: no-repeat;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     background-size: cover;
 }
 
-.icon-manager {
-    background: transparent url(../images/next.svg);
-    background-repeat: no-repeat;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    background-size: cover;
-}
-
-.icon-reports {
-    background: transparent url(../images/next.svg);
-    background-repeat: no-repeat;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    background-size: cover;
-}
 
 .icon-location {
-    background: transparent url(../images/location.svg);
+    background: transparent url(../images/location_pur.svg);
     background-repeat: no-repeat;
     -webkit-background-size: cover;
     -moz-background-size: cover;
@@ -171,7 +159,7 @@ ul {
 }
 
 .chevron {
-    background: transparent url(../images/next_blue.svg);
+    background: transparent url(../images/next_pur.svg);
     background-repeat: no-repeat;
     background-size: contain;
     width: 20px;
@@ -181,6 +169,15 @@ ul {
     top: 22px;
     height: 50px;
     width: 28px;
+}
+
+.hide{
+    visibility: hidden;
+}
+
+.navigate{
+    position:relative;
+    top:9px;
 }
 
 #map {
@@ -196,6 +193,10 @@ ul {
     height:40%;
     margin:0px;
     padding:0px;
+}
+
+.warnbox-content, .warnbox-c1, .warnbox-c2{
+    display:none;
 }
 
 #direction-panel{

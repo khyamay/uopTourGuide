@@ -15,18 +15,6 @@ App.Views = App.Views || {};
         var lng = this.model.get('lng');
         var directionsService = new google.maps.DirectionsService();  
         var directionsDisplay = new google.maps.DirectionsRenderer();
-        var myLatlng = new google.maps.LatLng(lat, lng);
-        var mapOptions = {
-            center: myLatlng,
-            zoom: 12,
-            };
-
-        this.map = new google.maps.Map(this.$el.find('#map-canvas')[0], mapOptions);
-        directionsDisplay.setMap(this.map);
-        directionsDisplay.setPanel(this.$el.find('#directions-panel')[0]);
-        
-
-        //ToDo Add error handling
         if(navigator.geolocation){
 
             navigator.geolocation.getCurrentPosition(function(position){
@@ -49,8 +37,22 @@ App.Views = App.Views || {};
             });
 
         } else{
+            
             alert('Geolocation is not supported!');
         }
+        var myLatlng = new google.maps.LatLng(lat, lng);
+        var mapOptions = {
+            center: myLatlng,
+            zoom: 12,
+            };
+
+        this.map = new google.maps.Map(this.$el.find('#map-canvas')[0], mapOptions);
+        directionsDisplay.setMap(this.map);
+        directionsDisplay.setPanel(this.$el.find('#directions-panel')[0]);
+        
+
+        //ToDo Add error handling
+
        
     },
     
@@ -59,7 +61,7 @@ App.Views = App.Views || {};
     },
 
     render: function () {
-        this.$el.html(this.template(this.attributes));
+        this.$el.html(this.template(this.model.attributes));
         this.initMap();
         return this;
 

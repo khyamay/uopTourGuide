@@ -14,7 +14,6 @@ App.Views = App.Views || {};
         	this.$el.empty();
         	_.each(this.model.models, function(building){
             App.singleBuildingListView = new App.Views.SingleBuildingListView({model: building});
-        		console.log(App.singleBuildingListView);
                 this.$el.append(App.singleBuildingListView.render().el);
         	}, this);
             return this;
@@ -22,7 +21,8 @@ App.Views = App.Views || {};
     });
 
     App.Views.SingleBuildingListView = Backbone.View.extend({
-    	tagName: "li",
+    	template: JST['app/scripts/templates/BuildingListView.ejs'],
+        tagName: "li",
     	className: "topcoat-list__item",
 
     	initialize: function(){
@@ -33,7 +33,6 @@ App.Views = App.Views || {};
     	render: function(){
             var html = this.template(this.model.attributes);
     		this.$el.html(html);
-            //this.$el.html(this.model.attributes);
     		return this;
     	}
     });

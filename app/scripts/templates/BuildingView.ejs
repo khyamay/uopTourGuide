@@ -1,19 +1,19 @@
 <div class="topcoat-navigation-bar">
     <div class="topcoat-navigation-bar__item center half">
-        <h1 class="topcoat-navigation-bar__title"><a href="./"><%= buildingName %></a></h1>
+        <h1 class="topcoat-navigation-bar__title"><%= buildingName %></h1>
     </div>
 </div>
 
 <div class='details'>
-    <h1><%= buildingName %></h1>
-    <h2><%= department %></h2>
-    <h2><%= address %></h2>
+    <h1>Information</h1>
+    <p><%= department %><%= info %></p>
+    <p>Address: <%= address %></p>
     <span class="location"></span>
     <div class="topcoat-list__container scroller">
         <ul class="topcoat-list list actions">
             <li class="topcoat-list__item"><a href="tel:<%= telePhone %>"><p>Call Office</p><p><%= telePhone %></p><div class="action-icon icon-call"></div></a></li>
             <li class="topcoat-list__item"><a href="mailto:<%= email %>"><p>Email</p><p><%= email %></p><div class="action-icon icon-mail"></div></a></li>
-            <li class="topcoat-list__item"><a href="#buildings/<%= id %>/map"><p>Navigate Here</p><p><%= email %></p><div class="action-icon icon-location"></div></a></li>
+            <li class="topcoat-list__item"><a href="#buildings/<%= id %>/map"><p class="navigate">Navigate Here</p><p class="hide">Navigate Here</p><div class="action-icon icon-location"></div></a></li>
         </ul>
     </div>
 </div>

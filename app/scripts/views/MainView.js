@@ -4,14 +4,15 @@ App.Views = App.Views || {};
 
     App.Views.MainView = Backbone.View.extend({
     	
-        template: JST['app/scripts/templates/MainView.ejs'],
+       template: JST['app/scripts/templates/MainView.ejs'],
 
         initialize: function(){
         	className: '.scroller',
+            $('div.search-bar').css('display','none');
         	this.buildingList = new App.Models.BuildingCollection();
         	this.buildingList.fetch({reset: true, data:{name:""}});
         	this.buildingListView = new App.Views.BuildingListView({model: this.buildingList});
-        },
+          },
 
         render: function(){
         	this.$el.html(this.template());
@@ -24,16 +25,18 @@ App.Views = App.Views || {};
 			"keypress .search-key" : "onkeypress"
 		},
 
-		search: function(e){
-			e.preventDefault();
-			var key = $('search-key').val();
-			this.buildingList.fetch({reset: true, data:({name: key})
-		});
+		search: function(event){
+			event.preventDefault();
+			var key = $('.search-key').val();
+            console.log(key);
+			this.buildingList.fetch({reset: true, data: ({name: key})});
+			//this.buildingListView = new App.Views.BuildingListView({model: this.buildingList});
+
 		},
 
-		onkeypress: function(e){
-			if(e.keyCode === 13){
-				e.preventDefault();
+		onkeypress: function(event){
+			if(event.keyCode === 13){
+				event.preventDefault();
 			}
 		}
     });

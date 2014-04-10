@@ -8,8 +8,6 @@ App.Views = App.Views || {};
         render: function(){
         var html = this.template(this.model.attributes);
         this.$el.html(html);
-        //this.$el.html(this.model.attributes);
-
         return this;
     	}
     });
