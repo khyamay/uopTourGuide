@@ -6,54 +6,65 @@ App.Views = App.Views || {};
 
      	template: JST['app/scripts/templates/MapView.ejs'],
         
-    initialize: function(){
-    	this.render();
-  		},
-
   	initMap: function () {
         var lat = this.model.get('lat');
         var lng = this.model.get('lng');
+        var mapcanvas = document.getElementById('map-canvas');
+        var directionspanel = document.getElementById('directions-panel');
         var directionsService = new google.maps.DirectionsService();  
         var directionsDisplay = new google.maps.DirectionsRenderer();
-        if(navigator.geolocation){
-
-            navigator.geolocation.getCurrentPosition(function(position){
-                var start = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
-               
-                var start = start;
-                var end = new google.maps.LatLng(lat, lng);
-               
-                var request = {
-                origin: start,
-                destination: end,
-                travelMode: google.maps.TravelMode.WALKING
-                };
-
-                 directionsService.route(request, function(response, status) {
-                    if (status == google.maps.DirectionsStatus.OK) {
-                        directionsDisplay.setDirections(response);
-                        }
-                    });
-            });
-
-        } else{
-            
-            alert('Geolocation is not supported!');
-        }
+        
         var myLatlng = new google.maps.LatLng(lat, lng);
         var mapOptions = {
             center: myLatlng,
             zoom: 12,
             };
 
-        this.map = new google.maps.Map(this.$el.find('#map-canvas')[0], mapOptions);
+        this.map = new google.maps.Map(mapcanvas, mapOptions);
         directionsDisplay.setMap(this.map);
-        directionsDisplay.setPanel(this.$el.find('#directions-panel')[0]);
-        
+        directionsDisplay.setPanel(directionspanel);
 
-        //ToDo Add error handling
+        if(navigator.geolocation){
 
-       
+            navigator.geolocation.getCurrentPosition(geoSuccess, geoError);
+                function geoSuccess(position){
+                    var start = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+                    var start = start;
+                    var end = new google.maps.LatLng(lat, lng);
+                   
+                    var request = {
+                        origin: start,
+                        destination: end,
+                        travelMode: google.maps.TravelMode.WALKING
+                    };
+
+                 directionsService.route(request, function(response, status) {
+                    if (status == google.maps.DirectionsStatus.OK) {
+                        directionsDisplay.setDirections(response);
+                        }
+                    });
+                }
+                function geoError(error){
+                    var err =[];
+                    switch(error.code) {
+                        case error.PERMISSION_DENIED:
+                            err.push('<p class="topcoat-list__item">'+ 'Geolocation is denied by the user.'+ '</p>');     
+                            break;
+                        case error.POSITION_UNAVAILABLE:
+                         err.innerHTML = "Geolocation information is unavailable.";
+                            break;
+                        case error.TIMEOUT:
+                         err.innerHTML ="Timed out for the user request.";
+                            break;
+                        case error.UNKNOWN_ERROR:
+                         err.innerHTML = "An unknown error occurred.";
+                            break;
+                        }
+                    document.getElementById('error').innerHTML = err
+                    }
+            } else {
+                alert('Geolocation is not supported.');
+            }
     },
     
     resize: function() {

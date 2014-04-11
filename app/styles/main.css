@@ -24,15 +24,19 @@
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
-    height:200px;   
+    height:200px;  
+    position: relative; 
 }
 
 .bgimage > p{
-    position: fixed;
+    position: absolute;
     height:1.25em;
     font-size:1.50em;
     color: #ffffff;
-    top:100px;
+    top:55px;
+    margin:0 auto;
+    min-width:350px;
+    max-width:500px;
 }
 
 .bgimage span{
