@@ -10,6 +10,14 @@
     right: 0px;
 }
 
+.logo{
+    font-size:1.5em;
+    font-weight:bold !important;
+    color: #59379E !important;
+    text-shadow: 2px 1px 0px rgba(0,0,0,0.2);
+
+}
+
 .bgimage{
     background: url(../images/uop.jpg) no-repeat center;
     -webkit-background-size: cover;
@@ -68,17 +76,17 @@ a {
 }
 
 .details h1 {
-    padding: 5px 0px 0px 0px;
-    margin: 0px 0px 0px 0px;
+    padding: 0;
+    margin: 0;
     font-size: 1.2rem;
 }
 
 .details h2 {
-    padding: 0px 0px 0px 0px;
-    margin: 0px 0px 0px 0px;
+    padding: 0;
+    margin: 0;
     font-size: 1.1rem;
     font-weight: normal;
-    color: #888;
+    color: #59379E;
 }
 .details p{
     margin-top: 0;
@@ -94,11 +102,12 @@ a {
     margin: 0px;
     padding-top: 4px;
     font-weight: bold;
+    color:#000000;
 }
 
 .list > li p:nth-of-type(2) {
     margin: 0px;
-    color: #888;
+    color: #59379E;
 }
 
 .list > li img {

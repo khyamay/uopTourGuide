@@ -1,6 +1,5 @@
 /*global App, $*/
 
-
 App = {
     Models: {},
     Collections: {},
@@ -16,5 +15,4 @@ $(document).ready(function () {
 	// App.mainView = new App.Views.MainView();
 	App.routers = new App.Routers.MainRouter();
 	Backbone.history.start();
-   	
-});
+   	});

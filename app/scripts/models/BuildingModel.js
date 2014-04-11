@@ -1,5 +1,4 @@
 /*global app, Backbone*/
-
 App.Models = App.Models || {};
 
     App.Models.BuildingModel = Backbone.Model.extend({
@@ -19,6 +18,7 @@ App.Models = App.Models || {};
     });
 
     App.Models.BuildingCollection = Backbone.Collection.extend({
+
     model: App.Models.BuildingModel,
 
     sync: function(method, model, options){

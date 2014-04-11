@@ -3,20 +3,26 @@
 <head>
     <meta charset="uft-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no">
-    <!-- Stylesheets -->
+    <!-- build:css(.tmp) styles/main.css -->
     <link rel="stylesheet" href="bower_components/topcoat/css/topcoat-mobile-light.css" >
     <link rel="stylesheet" href="styles/pageslider.css">
     <link rel="stylesheet" href="styles/main.css">
+    <!-- endbuild -->
 
   <title>UoP Tour Guide</title>
 </head>
 <body>
-<!-- Javascript Libraries -->
+
+<!-- build:js scripts/vendor/plugin.js -->
+<script src="scripts/vendor/pageslider.js"></script>
+<!-- endbuild -->
+ <!-- build:js scripts/vendor.js -->
 <script src="bower_components/jquery/jquery.js"></script>
 <script src="bower_components/underscore/underscore.js"></script>
 <script src="bower_components/backbone/backbone.js"></script>
-<script src="scripts/vendor/pageslider.js"></script>
-<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=[api key]&sensor=true"></script>
+<!-- endbuild -->
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDdUT5e3H22fchX3u9VZ2GD7YH9eYX2J64&sensor=true"></script>
+
 
 <!-- build:js({.tmp,app}) scripts/main.js -->
 
