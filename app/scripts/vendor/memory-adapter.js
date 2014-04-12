@@ -2,8 +2,9 @@ App.Adapters.building = (function () {
 
     var findById = function (id) {
         var def = $.Deferred(),
+        	promise = def.promise(),
             building = null;
-        len = buildings.length;
+        	len = buildings.length;
 
         for (var i = 0; i < len; i++) {
             if (buildings[i].id === id) {
@@ -12,11 +13,12 @@ App.Adapters.building = (function () {
             }
         }
         def.resolve(building);
-        return def.promise();
+        return promise;
     },
 
         findByName = function (searchKey) {
-            var def = $.Deferred();;
+            var def = $.Deferred();
+            var promise = def.promise();
             var results = buildings.filter(function (el) {
                 var buildingName = el.buildingName;
                 return buildingName.toLowerCase().indexOf(searchKey.toLowerCase()) > -1;
@@ -24,7 +26,7 @@ App.Adapters.building = (function () {
             });
 
             def.resolve(results);
-            return def.promise();
+            return promise;
         },
 
 

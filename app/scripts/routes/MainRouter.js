@@ -20,7 +20,6 @@ App.Routers.MainRouter = Backbone.Router.extend({
             App.mainView = new App.Views.MainView();
             App.mainView.render();
         } else {
-            console.log("view reuse");
             App.mainView.delegateEvents();
         }
         App.slider.slidePage(App.mainView.$el);

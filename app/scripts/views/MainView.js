@@ -7,7 +7,6 @@ App.Views.MainView = Backbone.View.extend({
 
     initialize: function () {
         className: '.scroller',
-        $('div.search-bar').css('display', 'none');
         this.buildingList = new App.Models.BuildingCollection();
         this.buildingList.fetch({
             reset: true,
@@ -32,6 +31,7 @@ App.Views.MainView = Backbone.View.extend({
     },
 
     search: function (event) {
+        $('#error').empty();
         event.preventDefault();
         var key = $('.search-key').val();
         this.buildingList.fetch({
@@ -40,6 +40,13 @@ App.Views.MainView = Backbone.View.extend({
                 name: key
             })
         });
+         if(this.buildingList.length === 0){
+            var err = [],
+                divError = $('#error');
+                err.push('<p class="topcoat-list__item">' + 'No result found. Please try again' + '</p>');
+                return divError.append(err); 
+                console.log(err, err.length);
+            }
     },
 
     onkeypress: function (event) {
