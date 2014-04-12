@@ -40,13 +40,12 @@ App.Views.MainView = Backbone.View.extend({
                 name: key
             })
         });
-         if(this.buildingList.length === 0){
+        if (this.buildingList.length === 0) {
             var err = [],
                 divError = $('#error');
-                err.push('<p class="topcoat-list__item">' + 'No result found. Please try again' + '</p>');
-                return divError.append(err); 
-                console.log(err, err.length);
-            }
+            err.push('<p class="topcoat-list__item">' + 'No result found. Please try again' + '</p>');
+            return divError.append(err);
+        }
     },
 
     onkeypress: function (event) {
