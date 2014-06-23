@@ -5,7 +5,8 @@
     "jquery": "~1.9.0",
     "underscore": "~1.4.3",
     "backbone": "~1.0.0",
-    "topcoat": "0.8.0"
+    "topcoat": "0.8.0",
+    "requirejs": "~2.1.14"
   },
   "devDependencies": {}
 }
