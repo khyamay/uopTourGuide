@@ -1,11 +1,15 @@
-App.Adapters.building = (function () {
 
+//This function is credited to http://github.com/ccoenraets/directory-backbone-topcoat
+App.Adapters.building = (function () {
+    //findById that will used for fetching the data by Id in-memory adapter
     var findById = function (id) {
+        // using the Deferred method of jQuery
         var def = $.Deferred(),
         	promise = def.promise(),
             building = null;
         	len = buildings.length;
 
+        //for loop used for searching the building according to id that is entered by users
         for (var i = 0; i < len; i++) {
             if (buildings[i].id === id) {
                 building = buildings[i];
@@ -15,12 +19,15 @@ App.Adapters.building = (function () {
         def.resolve(building);
         return promise;
     },
-
+        //findByName that will used for fetching the data by Name in-memory adapter
         findByName = function (searchKey) {
             var def = $.Deferred();
             var promise = def.promise();
+            //using the filter method of underscore to filter in the building array which contains data information about buidings in json format. 
             var results = buildings.filter(function (el) {
                 var buildingName = el.buildingName;
+
+                //it will return the buildName then it will change that building name & searchkey entered by user into lowercase. This method will only return when the bujildiName or searchkey are valid
                 return buildingName.toLowerCase().indexOf(searchKey.toLowerCase()) > -1;
 
             });
@@ -29,7 +36,7 @@ App.Adapters.building = (function () {
             return promise;
         },
 
-
+    //All the information about building of university of portsmouth are kept here.
         buildings = [{
                 "id": 1,
                 "buildingName": "Anglesea Building",
@@ -265,6 +272,7 @@ App.Adapters.building = (function () {
 
         ];
 
+        //these will simply return the method findById and findByName
     return {
         findById: findById,
         findByName: findByName
